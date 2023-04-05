@@ -5,8 +5,6 @@
   font-family: "Rubik", sans-serif;
   scroll-behavior: smooth;
   text-decoration: none;
-  background: inherit;
-  border: none;
   color: black;
 }
 
@@ -22,11 +20,22 @@ body {
 
 header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 100px;
   padding: 0 20px;
+}
+
+button {
+  background: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  display: inline-block;
+  width: 100%;
 }
 
 #logo {
@@ -40,7 +49,6 @@ header {
   margin: 0 8px;
   padding: 4px 0;
   font-size: 1.1rem;
-  cursor: pointer;
 }
 
 #navigation button:hover {
@@ -80,7 +88,7 @@ header {
 }
 
 .about-image {
-  width: 40%;
+  width: 38%;
   margin: 20px;
 }
 
@@ -91,8 +99,8 @@ header {
 
 .about button {
   width: 80px;
+  height: 40px;
   margin-top: 8px;
-  padding: 8px;
   font-size: 1.1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -129,20 +137,106 @@ header {
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
-.product-price {
+.product-button {
   padding: 8px;
   border: none;
   background: transparent;
   font-size: 1rem;
-  cursor: pointer;
 }
 
-.product-price:hover span {
+.product-button:hover span {
   display: none;
   transition: 5s;
 }
 
-.product-price:hover:before {
+.product-button:hover:before {
   content: "+ Add to Cart";
   border-bottom: 1px solid black;
+}
+
+#cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 380px;
+  min-height: 100vh;
+  padding: 28px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.cart-exit {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  padding-bottom: 16px;
+  border-bottom: 1px solid black;
+}
+
+.cart-exit-button {
+  font-size: 1.6rem;
+}
+
+.cart-exit-button:hover {
+  color: red;
+}
+
+.cart-product {
+  display: flex;
+  position: relative;
+  height: 150px;
+  padding: 16px 0;
+  border-bottom: 1px solid black;
+}
+
+.cart-product-image {
+  height: 100%;
+}
+
+.cart-product-details {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  row-gap: 8px;
+  align-self: start;
+  margin-left: 16px;
+}
+
+.cart-product-plus,
+.cart-product-minus {
+  font-size: 1.4rem;
+}
+
+.cart-product-exit {
+  position: absolute;
+  top: calc(top - 16px);
+  right: 0;
+  font-size: 1.4rem;
+}
+
+.cart-product-exit:hover {
+  color: red;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.cart-summary-button {
+  width: 100%;
+  margin: 16px 0;
+  padding: 8px 0;
+  border: 1px solid black;
+  font-size: 1.2rem;
+}
+
+.cart-summary-button:hover {
+  color: white;
+  background-color: black;
+}
+
+.hide {
+  display: none;
 }

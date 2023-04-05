@@ -18,8 +18,7 @@
     </div>
     <nav id="navigation">
         <button><a href="#products">Buy</a></button>
-        <button>Cart
-        </button>
+        <button id="cart-button">Cart (0)</button>
     </nav>
    </header>
    <section id="about-section">
@@ -74,44 +73,55 @@
     <div class="product">
         <img class="product-img" src="images/product_9.png" alt="armchair photo">
         <p class="product-name">Avocado armchair</p>
-        <button class="product-price"><span>699$</span></button>
+        <button class="product-button" data-index="1" data-name="Avocado armchair" data-price="699" data-value="0"><span>699$</span></button>
     </div>
     <div class="product">
         <img class="product-img" src="images/product_7.png" alt="armchair photo">
         <p class="product-name">Avocado armchair</p>
-        <button class="product-price"><span>699$</span></button>
+        <button class="product-button" data-index="2" data-name="Avocado armchair"><span>699$</span></button>
     </div>
     <div class="product">
         <img class="product-img" src="images/product_6.png" alt="armchair photo">
         <p class="product-name">Avocado armchair</p>
-        <button class="product-price"><span>699$</span></button>
+        <button class="product-button" data-index="3" data-name="Avocado armchair"><span>699$</span></button>
     </div>
     <div class="product">
         <img class="product-img" src="images/product_5.png" alt="armchair photo">
         <p class="product-name">Avocado armchair</p>
-        <button class="product-price"><span>699$</span></button>
+        <button class="product-button" data-index="4" data-name="Avocado armchair"><span>699$</span></button>
     </div>
     <div class="product">
         <img class="product-img" src="images/product_4.png" alt="armchair photo">
         <p class="product-name">Avocado armchair</p>
-        <button class="product-price"><span>699$</span></button>
+        <button class="product-button" data-index="5" data-name="Avocado armchair"><span>699$</span></button>
     </div>
     <div class="product">
         <img class="product-img" src="images/product_3.png" alt="armchair photo">
         <p class="product-name">Avocado armchair</p>
-        <button class="product-price"><span>699$</span></button>
+        <button class="product-button" data-index="6" data-name="Avocado armchair"><span>699$</span></button>
     </div>
     <div class="product">
         <img class="product-img" src="images/product_2.png" alt="armchair photo">
         <p class="product-name">Avocado armchair</p>
-        <button class="product-price"><span>699$</span></button>
+        <button class="product-button" data-index="7" data-name="Avocado armchair"><span>699$</span></button>
     </div>
     <div class="product">
         <img class="product-img" src="images/product_1.png" alt="armchair photo">
         <p class="product-name">Avocado armchair</p>
-        <button class="product-price"><span>699$</span></button>
+        <button class="product-button" data-index="8" data-name="Avocado armchair"><span>699$</span></button>
     </div>
    </section>
    <footer></footer>
+   <div id="cart" class="hide">
+    <div class="cart-exit"><button class="cart-exit-button">X</button></div>
+    <div id="cart-products">
+    </div>
+    <div class="cart-summary">
+        <span class="cart-summary-total">Total:</span>
+        <span class="cart-summary-price">699$</span>
+        <button class="cart-summary-button">Buy</button>
+    </div>
+    
+   </div>
 </body>
 </html>
