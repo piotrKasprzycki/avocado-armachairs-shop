@@ -2,11 +2,14 @@
 const cartBtn = document.querySelector("#cart-button");
 const cartExitBtn = document.querySelector(".cart-exit-button");
 const cart = document.querySelector("#cart");
+const products = document.querySelector("#products");
 const productsBtns = document.querySelectorAll(".product-button");
 const productsCartContainer = document.querySelector("#cart-products");
 const addedWindow = document.querySelector("#product-added");
 const addedWindowCart = document.querySelector("#go-to-cart");
 const addedWindowContinue = document.querySelector("#continue-shopping");
+const upBtn = document.querySelector("#up-button");
+const downBtn = document.querySelector("#down-button");
 const summaryPrice = document.querySelector(".cart-summary-price");
 const summaryBtn = document.querySelector(".cart-summary-button");
 
@@ -55,6 +58,18 @@ addedWindowCart.addEventListener("click", () => {
   openCart();
 });
 
+const hideProduct = function () {
+  const products = [...document.querySelectorAll(".cart-product")];
+  if (products.length > 2) {
+    const lastVisibleProduct = products.find(
+      (prod) => !prod.classList.contains("hide")
+    );
+    {
+      lastVisibleProduct.classList.add("hide");
+    }
+  }
+};
+
 const addProduct = function (productBtn) {
   openAddedWindow();
   if (checkIfItemExist(productBtn.dataset.index)) return;
@@ -64,7 +79,7 @@ const addProduct = function (productBtn) {
         <div class="cart-product-details">
             <span class="cart-product-name">${productBtn.previousElementSibling.textContent}</span>
             <span class="cart-product-value">
-              <span class="cart-product-quantity">1</span>x<span class="cart-product-price">${productBtn.firstChild.textContent}</span>$
+              <span class="cart-product-quantity">1</span>x<span class="cart-product-price">${productBtn.firstElementChild.textContent}</span>$
             </span>
             <div class="cart-product-edit">
                 <button class="cart-product-plus">+</button>
@@ -74,18 +89,26 @@ const addProduct = function (productBtn) {
         <button class="cart-product-delete">x</button>
     </div>`;
   productsCartContainer.innerHTML += content;
+  hideProduct();
   sumTotal();
 };
 
 productsBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    addProduct(e.target);
+    addProduct(e.currentTarget);
   });
 });
 
 const deleteProduct = function (deleteBtn) {
   deleteBtn.remove();
   sumTotal();
+  const products = [...document.querySelectorAll(".cart-product")];
+  const firstHidedProduct = products.findLast((prod) =>
+    prod.classList.contains("hide")
+  );
+  if (firstHidedProduct) {
+    firstHidedProduct.classList.remove("hide");
+  }
 };
 
 productsCartContainer.addEventListener("click", (e) => {
@@ -135,3 +158,39 @@ const summaryAlert = function () {
 summaryBtn.addEventListener("click", () => {
   summaryAlert();
 });
+
+const showProductUp = function () {
+  const products = [...document.querySelectorAll(".cart-product")];
+  if (products.length < 3) return;
+  const lastHidedProduct = products.find((prod) =>
+    prod.classList.contains("hide")
+  );
+  if (lastHidedProduct) {
+    lastHidedProduct.classList.remove("hide");
+  }
+  const firstVisibleProduct = products.findLast(
+    (prod) => !prod.classList.contains("hide")
+  );
+
+  firstVisibleProduct.classList.add("hide");
+};
+
+const showProductDown = function () {
+  const products = [...document.querySelectorAll(".cart-product")];
+  if (products.length < 3) return;
+  const firstHidedProduct = products.findLast((prod) =>
+    prod.classList.contains("hide")
+  );
+  if (firstHidedProduct) {
+    firstHidedProduct.classList.remove("hide");
+  }
+  const lastVisibleProduct = products.find(
+    (prod) => !prod.classList.contains("hide")
+  );
+
+  lastVisibleProduct.classList.add("hide");
+};
+
+upBtn.addEventListener("click", showProductUp);
+
+downBtn.addEventListener("click", showProductDown);
