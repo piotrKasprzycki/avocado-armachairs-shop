@@ -135,7 +135,7 @@ const sumTotal = function () {
     return acc;
   }, 0);
   summaryPrice.textContent = `${sum}$`;
-  cartBtn.textContent = `Cart (${values.length})`;
+  cartBtn.querySelector("span").textContent = `(${values.length})`;
 };
 
 const emptyCart = function () {

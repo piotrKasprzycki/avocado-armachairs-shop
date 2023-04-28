@@ -97,22 +97,26 @@ a {
 #about-one {
   justify-content: right;
   height: calc(100vh - 100px);
+  padding-right: 16%;
   background-color: var(--beige);
 }
 
 #about-two {
   justify-content: left;
   height: 100vh;
+  padding-left: 16%;
 }
 
 #about-three {
   justify-content: right;
   height: 100vh;
+  padding-right: 16%;
   background-color: var(--beige);
 }
 
 .about-image {
   width: 38%;
+  max-height: 80%;
   margin: 20px;
 }
 
@@ -276,20 +280,8 @@ a {
   font-size: 1.2rem;
 }
 
-#down .arrow,
-#up .arrow {
-  display: inline-block;
-  margin-left: 16px;
-}
-
-#up .arrow {
-  transform: rotate(-90deg);
-}
-
-#down .arrow {
-  transform: rotate(90deg);
-}
-
+#up-button:hover,
+#down-button:hover,
 .cart-exit-button:hover {
   color: var(--red);
 }
@@ -389,6 +381,8 @@ a {
     min-height: 200px;
     justify-content: center;
     align-items: center;
+    padding-right: 0;
+    padding-left: 0;
   }
 
   .about-image {
@@ -477,6 +471,10 @@ a {
   #product-added {
     bottom: 4px;
     height: 40vh;
+  }
+
+  #cart {
+    min-width: 0;
   }
 
   .cart-product {
