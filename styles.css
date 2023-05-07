@@ -14,6 +14,12 @@
   color: black;
 }
 
+html,
+body {
+  scroll-snap-type: mandatory;
+  scroll-snap-type: y mandatory;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -31,6 +37,7 @@ header {
   width: 100%;
   height: 100px;
   padding: 0 20px;
+  scroll-snap-align: start;
 }
 
 section {
@@ -82,6 +89,7 @@ a {
 .about {
   display: flex;
   align-items: center;
+  gap: 8%;
   width: 100%;
   height: 100vh;
   min-width: 1000px;
@@ -105,6 +113,7 @@ a {
   justify-content: left;
   height: 100vh;
   padding-left: 16%;
+  scroll-snap-align: start;
 }
 
 #about-three {
@@ -112,17 +121,19 @@ a {
   height: 100vh;
   padding-right: 16%;
   background-color: var(--beige);
+  scroll-snap-align: start;
 }
 
 .about-image {
   width: 38%;
+  max-width: 100vh;
   max-height: 80%;
   margin: 20px;
 }
 
 .about-image img {
-  width: 100%;
-  object-fit: contain;
+  height: 100%;
+  max-width: 100%;
 }
 
 .about button {
@@ -149,6 +160,7 @@ a {
   flex-wrap: wrap;
   width: 100%;
   height: 100vh;
+  scroll-snap-align: start;
 }
 
 .product {
@@ -318,6 +330,7 @@ a {
 .cart-product-plus,
 .cart-product-minus {
   font-size: 1.6rem;
+  margin-right: 8px;
 }
 
 .cart-product-delete {
@@ -363,9 +376,18 @@ a {
 }
 
 @media only screen and (max-width: 1278px) {
+  html,
+  body {
+    scroll-snap-type: none;
+  }
+
   section {
     min-width: 400px;
     min-height: 200px;
+  }
+
+  .about {
+    gap: 0%;
   }
 
   #about-one {
